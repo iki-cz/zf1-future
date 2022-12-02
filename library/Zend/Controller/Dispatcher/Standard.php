@@ -212,6 +212,7 @@ class Zend_Controller_Dispatcher_Standard extends Zend_Controller_Dispatcher_Abs
         {
             $finalClass = $this->formatClassName($this->_curModule, $className);
         }
+// var_dump($finalClass, class_exists($finalClass, false));die;
         if (class_exists($finalClass, false)) {
             return true;
         }
@@ -219,6 +220,7 @@ class Zend_Controller_Dispatcher_Standard extends Zend_Controller_Dispatcher_Abs
         $fileSpec    = $this->classToFilename($className);
         $dispatchDir = $this->getDispatchDirectory();
         $test        = $dispatchDir . DIRECTORY_SEPARATOR . $fileSpec;
+// var_dump($test);die;
         return Zend_Loader::isReadable($test);
     }
 
